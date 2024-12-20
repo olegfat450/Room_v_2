@@ -1,5 +1,6 @@
 package com.example.room_v_1
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -12,8 +13,8 @@ interface NoteDao {
 
     @Delete suspend fun delete(note: Contact)
 
-    @Query ("SELECT * FROM notes_table ORDER BY id ASC") fun getAllNotes(): List<Contact>
+    @Query ("SELECT * FROM contact_table ORDER BY id ASC") fun getAllNotes(): LiveData <List<Contact>>
 
-    @Query("DELETE FROM notes_table") fun deleteAll()
+    @Query("DELETE FROM contact_table") fun deleteAll()
 
 }
